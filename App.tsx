@@ -1,13 +1,18 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import NavigationStack from './src/navigation/NavigationStack';
+import {Provider} from 'react-redux';
+import {store} from './src/store/store';
+import {SafeAreaView, View} from 'react-native';
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <NavigationContainer>
-      <NavigationStack />
-    </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <NavigationStack />
+        </NavigationContainer>
+      </Provider>
   );
 };
 

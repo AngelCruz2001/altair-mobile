@@ -1,25 +1,52 @@
-import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
-import {colors} from '../../theme/globalTheme';
-import UpcomingEvents from '../../components/events/UpcomingEvents';
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  ScrollView,
+} from 'react-native';
+import React, {Fragment} from 'react';
+import {theme} from '../../theme/globalTheme';
+import {Search, UpcomingEvents, Location} from '../../components';
+import {FavoriteEvents} from '../../components/events/FavoriteEvents';
 
 export const Explore = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Explore Screen</Text>
-      <UpcomingEvents />
-    </View>
+    <Fragment>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={theme.colors.primary}
+        />
+        <ScrollView>
+          <View style={styles.header}>
+            <Location />
+            <Search />
+          </View>
+          <UpcomingEvents />
+          <FavoriteEvents />
+        </ScrollView>
+      </SafeAreaView>
+    </Fragment>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: theme.colors.white,
   },
-  title: {
-    padding: 20,
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: colors.primary,
+  header: {
+    backgroundColor: theme.colors.primary,
+    alignItems: 'center',
+    height: 180,
+    shadowColor: theme.colors.gray,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });

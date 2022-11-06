@@ -1,14 +1,22 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {SignIn, SignUp} from '../screens';
 import {NavigationTab} from './NavigationTab';
-
+import {useAppDispatch} from '../store/hooks';
+import {setTheme} from '../store/ui/uiSlice';
+import {darkTheme, theme} from '../theme/globalTheme';
 const Stack = createNativeStackNavigator();
 
 const NavigationStack = () => {
   const isSignedIn = true;
+  const dispatch = useAppDispatch();
+  const [isDark, setIsDark] = React.useState(false);
+
+  useEffect(() => {
+    dispatch(setTheme(isDark ? darkTheme : theme));
+  }, []);
 
   return (
     <Stack.Navigator

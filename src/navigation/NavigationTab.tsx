@@ -3,7 +3,7 @@ import {
   BottomTabBarButtonProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import {colors} from '../theme/globalTheme';
+import {theme} from '../theme/globalTheme';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ExploreStack from './ExploreStack';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
@@ -67,7 +67,7 @@ const TabBarCustomButton = ({
         duration={2000}
         ref={viewRef}>
         <Icon
-          color={isSelected ? colors.primary : colors.secondary}
+          color={isSelected ? theme.colors.primary : theme.colors.secondary}
           size={30}
           name={item.icon}
         />
