@@ -67,7 +67,7 @@ const TabBarCustomButton = ({
         duration={2000}
         ref={viewRef}>
         <Icon
-          color={isSelected ? theme.colors.primary : theme.colors.secondary}
+          color={isSelected ? theme.colors.primary : theme.colors.gray}
           size={30}
           name={item.icon}
         />

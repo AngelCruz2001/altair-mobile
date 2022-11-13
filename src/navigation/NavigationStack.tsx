@@ -7,7 +7,11 @@ import {NavigationTab} from './NavigationTab';
 import {useAppDispatch} from '../store/hooks';
 import {setTheme} from '../store/ui/uiSlice';
 import {darkTheme, theme} from '../theme/globalTheme';
-const Stack = createNativeStackNavigator();
+import {setEvents} from '../store/events/eventsSlice';
+import {data} from '../data';
+import {RootStackParamList} from '../types/RootStack.type';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const NavigationStack = () => {
   const isSignedIn = true;
@@ -16,6 +20,7 @@ const NavigationStack = () => {
 
   useEffect(() => {
     dispatch(setTheme(isDark ? darkTheme : theme));
+    dispatch(setEvents(data));
   }, []);
 
   return (

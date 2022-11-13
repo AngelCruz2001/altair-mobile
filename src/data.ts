@@ -9,7 +9,7 @@ export const data = [
       'https://unamglobal.unam.mx/wp-content/uploads/2022/04/conciertos-1-1.jpg',
     location: 'Landmark centrm, Victoria Island, Lagos',
     time: '10:00 am',
-    price: 1000,
+    price: '1000',
     isFavorite: false,
   },
   {
@@ -22,7 +22,7 @@ export const data = [
       'https://img.asmedia.epimg.net/resizer/zQ-VnlwmSjcKBWCU_3iqQH2BcS0=/1952x1098/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/4CNMQ3EBYJL6BESGB3QBWKTDDM.jpg',
     location: 'CDMX stadium, Mexico city',
     time: '10:00 am',
-    price: 1000,
+    price: '1000',
     isFavorite: false,
   },
   {
@@ -34,7 +34,7 @@ export const data = [
     coverPicture: 'https://cdn.forbes.com.mx/2022/03/concierto-640x360.jpg',
     location: 'Eko hotel, Victoria Island, Lagos',
     time: '10:00 am',
-    price: 1000,
+    price: '1000',
 
     isFavorite: false,
   },
@@ -45,10 +45,11 @@ export const data = [
     title: "Pa'l norte 2023",
     description:
       'Pa’l Norte is a music festival that takes place in the city of Monterrey, Nuevo León, Mexico.',
-    coverPicture: 'https://monterreysecreto.com/wp-content/uploads/2022/03/pal-norte-2022-cartel.jpg',
+    coverPicture:
+      'https://monterreysecreto.com/wp-content/uploads/2022/03/pal-norte-2022-cartel.jpg',
     location: 'Parque fundidora, Monterrey, Mexico',
     time: '10:00 am',
-    price: 1000,
+    price: '1000',
     isFavorite: false,
   },
 ];

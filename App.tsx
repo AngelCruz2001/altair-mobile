@@ -8,11 +8,11 @@ import {SafeAreaView, View} from 'react-native';
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   return (
-      <Provider store={store}>
-        <NavigationContainer>
-          <NavigationStack />
-        </NavigationContainer>
-      </Provider>
+    <Provider store={store}>
+      <NavigationContainer>
+        <NavigationStack />
+      </NavigationContainer>
+    </Provider>
   );
 };
 

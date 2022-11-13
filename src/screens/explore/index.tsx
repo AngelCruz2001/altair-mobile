@@ -7,8 +7,12 @@ import {
 } from 'react-native';
 import React, {Fragment} from 'react';
 import {theme} from '../../theme/globalTheme';
-import {Search, UpcomingEvents, Location} from '../../components';
-import {FavoriteEvents} from '../../components/events/FavoriteEvents';
+import {
+  Search,
+  UpcomingEvents,
+  Location,
+  FavoriteEvents,
+} from '../../components';
 
 export const Explore = () => {
   return (
