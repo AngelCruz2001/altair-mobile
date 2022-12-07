@@ -30,12 +30,12 @@ export const theme = {
   textVariants: {
     header: {
       fontFamily: 'Product Sans',
-      fontSize: 36,
-      fontWeight: 'bold',
+      fontSize: 25,
+      fontWeight: 'bold' as const,
     },
     body: {
       fontFamily: 'Product Sans',
-      fontSize: 16,
+      fontSize: 18,
     },
   },
 };

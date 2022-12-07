@@ -4,6 +4,7 @@ import {useAppDispatch} from '../../store/hooks';
 import {toogleFavoriteEvent} from '../../store/events/eventsSlice';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {theme} from '../../theme/globalTheme';
+import {startSetAsFavoriteEvent} from '../../store/events/thunks';
 
 type Props = {
   id: number;
@@ -12,10 +13,11 @@ type Props = {
 
 const Bookmark: FC<Props> = ({id, isFavorite}) => {
   const dispatch = useAppDispatch();
+
   const toogleFavorite = (id: number) => {
-    console.log(id);
-    dispatch(toogleFavoriteEvent(id));
+    dispatch(startSetAsFavoriteEvent(id));
   };
+
   return (
     <TouchableOpacity
       style={styles.pinContainer}

@@ -2,7 +2,7 @@ import {View, Text} from 'react-native';
 import React, {useEffect} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {SignIn, SignUp} from '../screens';
+import {Event, SignIn, SignUp} from '../screens';
 import {NavigationTab} from './NavigationTab';
 import {useAppDispatch} from '../store/hooks';
 import {setTheme} from '../store/ui/uiSlice';
@@ -11,7 +11,7 @@ import {setEvents} from '../store/events/eventsSlice';
 import {data} from '../data';
 import {RootStackParamList} from '../types/RootStack.type';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 const NavigationStack = () => {
   const isSignedIn = true;
@@ -31,6 +31,7 @@ const NavigationStack = () => {
       {isSignedIn ? (
         <>
           <Stack.Screen name="NavigationTab" component={NavigationTab} />
+          <Stack.Screen name="Event" component={Event} />
         </>
       ) : (
         <>

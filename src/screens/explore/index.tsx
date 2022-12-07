@@ -12,6 +12,7 @@ import {
   UpcomingEvents,
   Location,
   FavoriteEvents,
+  SearchTouchable,
 } from '../../components';
 
 export const Explore = () => {
@@ -25,7 +26,7 @@ export const Explore = () => {
         <ScrollView>
           <View style={styles.header}>
             <Location />
-            <Search />
+            <SearchTouchable />
           </View>
           <UpcomingEvents />
           <FavoriteEvents />

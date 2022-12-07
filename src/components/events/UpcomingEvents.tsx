@@ -3,8 +3,10 @@ import React from 'react';
 import EventUp from './EventUp';
 import {data} from '../../data';
 import {theme} from '../../theme/globalTheme';
+import {useAppSelector} from '../../store/hooks';
 
 export const UpcomingEvents = () => {
+  const {events} = useAppSelector(state => state.events);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Explore Screen</Text>
@@ -12,7 +14,7 @@ export const UpcomingEvents = () => {
       <ScrollView
         horizontal={true}
         style={{paddingVertical: 10, backgroundColor: 'white'}}>
-        {data.map(event => (
+        {events?.map(event => (
           <EventUp key={event.id} {...event} />
         ))}
       </ScrollView>
@@ -26,8 +28,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   title: {
-    fontSize: 25,
-    fontWeight: 'bold',
+    ...theme.textVariants.header,
     color: theme.colors.primary,
   },
 });

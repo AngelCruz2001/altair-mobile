@@ -39,6 +39,14 @@ interface TabBarCurstomButtonProps extends BottomTabBarButtonProps {
   };
 }
 
+export const tabBarStyle = {
+  height: 95,
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  shadowColor: 'gray',
+  shadowOffset: {width: 0, height: 0},
+};
+
 const TabBarCustomButton = ({
   onPress,
   item,
@@ -96,6 +104,8 @@ export const NavigationTab = () => {
           component={tab.component}
           options={{
             tabBarShowLabel: false,
+            tabBarHideOnKeyboard: true,
+
             tabBarButton: props => <TabBarCustomButton {...props} item={tab} />,
           }}
         />

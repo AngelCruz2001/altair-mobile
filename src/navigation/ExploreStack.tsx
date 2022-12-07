@@ -1,15 +1,15 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import {StackActions} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Explore, Event} from '../screens';
 import {RootStackParamList} from '../types/RootStack.type';
+import {SearchScreen} from '../screens/search';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const ExploreStack = () => {
+const ExploreStack = (props: any) => {
   return (
-    <Stack.Navigator initialRouteName="Explore">
+    <Stack.Navigator initialRouteName="Explore" screenOptions={{}}>
       <Stack.Screen
         name="Explore"
         component={Explore}
@@ -17,8 +17,17 @@ const ExploreStack = () => {
           headerShown: false,
         }}
       />
+
       <Stack.Screen
-        name="Event"
+        name="Search"
+        component={SearchScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Tickets"
         component={Event}
         options={{
           headerShown: false,

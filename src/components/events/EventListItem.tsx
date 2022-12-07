@@ -1,12 +1,9 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import React, {FC} from 'react';
-import {data} from '../../data';
 import {Card} from '../card';
-import {toogleFavoriteEvent} from '../../store/events/eventsSlice';
 import moment from 'moment';
 import {theme} from '../../theme/globalTheme';
 import {IEvent} from '../../interfaces/event.interface';
-import {useAppDispatch} from '../../store/hooks';
 import TextLocation from './TextLocation';
 import Bookmark from './Bookmark';
 
@@ -22,7 +19,7 @@ const EventListItem: FC<IEvent> = event => {
 
         <View style={styles.information}>
           <Text style={styles.date}>
-            {moment(event.date).format('DD MMM')} - {event.time}
+            {moment(event.date).format('DD MMM')} - {event.startTime}
           </Text>
 
           <Text style={styles.eventName} ellipsizeMode="tail" numberOfLines={2}>

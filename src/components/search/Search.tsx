@@ -1,22 +1,50 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import {FC, useCallback, useEffect, useRef, useState} from 'react';
 import {theme} from '../../theme/globalTheme';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useFocusEffect} from '@react-navigation/native';
+interface Props {
+  setSearchWord: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export const Search = () => {
-  const [search, setSearch] = React.useState('');
+export const Search: FC<Props> = ({setSearchWord}) => {
+  const [search, setSearch] = useState('');
+  const textInput = useRef<TextInput>(null);
 
-  const onChangeSearch = (query: string) => setSearch(query);
+  const onChangeSearch = (query: string) => {
+    setSearch(query);
+    setSearchWord(query);
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      const focus = () => {
+        setTimeout(() => {
+          textInput?.current?.focus();
+        }, 1);
+      };
+      focus();
+      return focus;
+    }, []),
+  );
 
   return (
     <View style={styles.searchContainer}>
       <Icon name="search" size={25} color={theme.colors.gray} />
       <TextInput
+        ref={textInput}
         style={styles.search}
         onChangeText={onChangeSearch}
         value={search}
         placeholder="Search events"
         placeholderTextColor={theme.colors.gray}
+        autoFocus={true}
+        editable={true}
       />
     </View>
   );
@@ -30,9 +58,8 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: theme.colors.white,
     borderRadius: 10,
-    margin: 20,
-    paddingRight: 10,
-    paddingLeft: 10,
+    alignSelf: 'center',
+    paddingHorizontal: 10,
     // Color placeholder
   },
   search: {

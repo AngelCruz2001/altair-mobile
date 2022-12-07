@@ -4,10 +4,12 @@ import {IEvent, IEvents} from '../../interfaces/event.interface';
 import {RootState, AppThunk} from '../store';
 export interface UIState {
   events: IEvent[] | null;
+  activeEvent: IEvent | null;
 }
 
 const initialState: UIState = {
   events: null,
+  activeEvent: null,
 };
 
 export const eventsSlice = createSlice({
@@ -23,8 +25,12 @@ export const eventsSlice = createSlice({
         event.isFavorite = !event.isFavorite;
       }
     },
+    setActiveEvent: (state, action: PayloadAction<IEvent | null>) => {
+      state.activeEvent = action.payload;
+    },
   },
   extraReducers: builder => {},
 });
 
-export const {setEvents, toogleFavoriteEvent} = eventsSlice.actions;
+export const {setEvents, toogleFavoriteEvent, setActiveEvent} =
+  eventsSlice.actions;

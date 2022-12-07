@@ -1,37 +1,28 @@
-import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import React, {FC, useContext} from 'react';
-import {theme} from '../../theme/globalTheme';
-import {useAppSelector} from '../../store/hooks';
-import {RootState} from '../../store/store';
+import {Image, StyleSheet, View, TouchableOpacity} from 'react-native';
+import React, {FC, useState} from 'react';
+import {useAppDispatch} from '../../store/hooks';
 import {Card} from '../card';
-import moment from 'moment';
 import TextDate from './TextDate';
 import TextLocation from './TextLocation';
 import {TextTitle} from './TextTitle';
 import {useNavigation} from '@react-navigation/native';
 import {RootStackParamList} from '../../types/RootStack.type';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-interface EventUpProps {
-  id: number;
-  date: string;
-  title: string;
-  description: string;
-  coverPicture: string;
-  location: string;
-  navigation: NativeStackScreenProps<RootStackParamList, 'Event'>['navigation'];
-}
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {setActiveEvent} from '../../store/events/eventsSlice';
+import {IEvent} from '../../interfaces/event.interface';
 
-const EventUp: FC<EventUpProps> = ({
-  id,
-  date,
-  title,
-  description,
-  coverPicture,
-  location,
-  navigation,
-}) => {
+const EventUp: FC<IEvent> = event => {
+  const {title, date, location, coverPicture} = event;
+  const [showModal, setShowModal] = useState(false);
+
+  const dispatch = useAppDispatch();
+
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, 'Explore'>>();
+
   const goToEvent = () => {
     console.log(navigation);
+    dispatch(setActiveEvent(event));
     navigation.navigate('Event');
   };
 

@@ -10,7 +10,6 @@ export const Card: FC<CardProps> = ({children}) => {
   return <View style={styles.container}>{children}</View>;
 };
 
-
 const styles = StyleSheet.create({
   container: {
     borderRadius: 10,

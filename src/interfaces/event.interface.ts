@@ -8,8 +8,20 @@ export interface IEvent {
   title: string;
   description: string;
   location: string;
-  time: string;
-  price: string;
+  startTime: string;
+  endTime: string;
+  place: string;
+  prices: IPrices[];
   isFavorite: boolean;
   coverPicture: string;
+  organizer: {
+    name: string;
+    profilePicture: string;
+  };
+}
+
+export interface IPrices {
+  type: string;
+  value: number;
+  color: string;
 }
